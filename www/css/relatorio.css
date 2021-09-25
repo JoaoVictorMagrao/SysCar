@@ -1,0 +1,80 @@
+.carros_relatorio{
+    border-style: groove;
+    margin: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border-color: rgb(17, 14, 14);
+    border-width: thin;     
+}
+
+
+#relatorio{
+    margin-top: 20px;
+}
+
+.font_relatorio{
+    font-size: 15px;
+}
+
+/* Pagina Sobre */
+
+.Info_aplicativo{
+    margin: 40px;
+    margin-top: 90px; 
+}
+
+
+.conteudo_app{
+    line-height: 0.4;
+    margin-top: 30px;
+    margin-bottom: 30px;  
+}
+
+
+.conteudo_dispositivo{
+    line-height: 0.4;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.icon-voltar_sobre{
+    margin-inline-start: -300px;
+    margin-top: -83px;
+}
+
+
+#Filtro{
+    width: 82%;
+    margin-left: 10px;
+}
+
+.carros_relatorio{
+    margin-top: 50%
+}
+
+
+
+.ui-first-child{
+    background-color: white;
+}
+
+.voltarRelatorio{
+    margin-bottom: 45px;
+}
+
+.iconVoltarSobre{
+    margin-inline-start: 10px;
+    margin-top: -42px;
+}
+
+
+.ui-input-search {
+
+margin-left: 15px;
+}
+
+.swal-modal .swal-text {
+    text-align: center;
+}
+

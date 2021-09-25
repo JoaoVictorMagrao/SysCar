@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>   
+    <meta charset="UTF-8">
+    <meta name="color-scheme" content="light dark">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+   <!-- <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">-->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/infoveiculo.css">
+    <link rel="stylesheet" href="css/Paginfo.css">
+    <link rel="stylesheet" href="css/pagCarro.css">
+    <link rel="stylesheet" href="css/relatorio.css">
+    
+   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script>
+    
+var km_troca_oleo = 0;
+var km = 0;
+var meuJSON = [];
+var id_carro_clicado = 0;
+var id_usuario = 0;
+var username = " "
+var password = " ";
+var login = [];
+var nomeUsuario = " ";
+var dadosincorretos = "Dados incorretos, tente novamente!!!"
+var fiesta = 0;
+var campovazio = "Preencha todos os campos!!!";
+var kmEoleoVazio = "Preencha todos os campos!!!";
+var dadosenviados = "Dados enviados com sucesso!!!"
+var VersaoApp = "1.0.0";
+var carros = [];
+var num_carros = "";
+var Indice_veiculo = 0;
+var id_carros = 0;
+
+</script>
+
+<title>SysCar</title>
+</head>
+
+<!--Pagina Login-->
+
+<body>
+<div data-role="page" id="login">
+    
+    <div data-role="main">
+        <icon src="res\splash"/>
+            <img src="imagens/logo_syspan1.png" alt="" id="imgLogin" class="imgSyspan">
+
+                <form class="login__registre" id="login-in">
+                    <h1 class="login__title">Login</h1>
+
+                        <div class="login__box">
+                                                
+                             <input type="text" placeholder="Usuario" id="Username" name="username"  required >
+                        </div>               
+                   
+                    <div class="resposive_exibir">
+                        <input type="password" placeholder="Senha" id="password" name="password" required >
+                        <p type="button" id="button"> Exibir</p>
+                    </div>    
+                       
+                            
+     
+                     <div class="borda_entrar">
+
+                         <input type="button" value="Entrar" id="btn_entrar" >
+                    </div>  
+                    <div class="dados">
+                        <p id="dados_incorretos"></p>
+                        <p id="campo_vazio" style="color: red;"></p>
+                    </div>        
+                </form>          
+     </div>
+                                
+        
+    
+                             <br><br><br><br>
+                               
+                               
+                             
+</div>
+
+                
+
+    <!--Pagina do Veiculo-->
+<div data-role="page" id="PagInfo">
+
+   
+    <div data-role="main">
+        
+        <img src="imagens/logo_syspan1.png" alt="" id="imgPagInfo" class="imgSyspan">
+       
+     <div class="menu_principal">
+        <p id="nomedousuario"></p>
+        <div id="Menu_relatorio"> 
+            
+            <a href="#Pag_carros " data-transition="flow">   <img src="imagens/icon-carro.png" alt="" width="100px" height="100px"></a> 
+  <a href="#Pag_carros " style="color: black;" data-transition="flow">Veiculos</a>
+  
+</div>
+
+<div id="Menu_relatorio">
+    <br>
+    <a href="#relatorio" data-transition="flow"> <img src="imagens/Icon-relatorio.png" alt="" width="100px he
+    100px"> </a> <br>
+  <a href="#relatorio" style="color: black;" data-transition="flow" > Relatório</a>
+</div>
+<div id="Menu_relatorio">
+    <a href="#Sobre" data-transition="flow"> <img src="imagens/icon-sobre.png" alt="" width="165px" height="100px"></a>
+    
+<a href="#Sobre" style="color: black;" data-transition="flow"> Sobre</a>
+
+</div>
+<br><br>
+
+
+     </div>  
+    </div>
+</div>
+          
+   
+
+
+                        <!-- Pagina Carro-->
+<div data-role="page" id="PagCarro">
+   
+    <div data-role="Main">
+        <img src="imagens/logo_syspan1.png" alt="" class="imgSyspan" id="imgFiesta">
+        <div class="icon-voltar">
+            <a href="#Pag_carros"> <img src="imagens/icon-voltar.png" alt="" height="35px" width="35px" ></a> 
+          </div>
+         
+         
+            <form id="formComentario" class="form" method="" action="">
+                <input type="hidden" name=" id_carro" id="id_carro" value="">
+    
+            <div class="conteudo_infoveiculos">
+                <div class="alterarkm"> 
+                    <h3 id="nome_veiculo"></h3>
+                    <br>
+                <label id="lblQuiloAtual" for="ipnQuiloAtual"> <b> Km atual </b> </label>
+                <input id="ipnQuiloAtual" type="number" name="kmatual" class="ipnKm" > 
+           <p id="testekm"></p>
+                </div>
+
+            <!--  <img src="imagens/loader.gif" class="loader" alt="loader" />-->
+
+                <br><br>
+
+                <div class="alterarOleo">
+
+                    <label id="lblTrocaOleo" for="ipnTrocaOleo"> <b> Ultima troca de Óleo</b></label>
+                    <input type="number" id="ipnTrocaOleo" >
+            <a href="#PagCarro">   <input type="submit" data-role="none" id="btn_Alterar" value="Enviar" ></a> 
+
+            <p id="kmEoleoVazio"></p>
+            <div class="conteudo_veiculo">
+
+                <p id="Km_veiculo"></p>
+
+                <p id="oleo_veiculo"></p>
+                
+                <p id="data_atualizacao"></p>
+               
+
+        </div>
+                </div>
+            </div>
+               
+             
+            </form> 
+            
+        
+    </div>
+  
+</div>
+
+
+
+
+<!--Pagina carros - listview -->
+<div data-role="page" id="Pag_carros">
+   
+    <div data-role="main">
+
+        <img src="imagens/logo_syspan1.png" alt="" class="imgSyspan" id="imgList">
+
+        <div class="icon-voltar">
+            <a href="#PagInfo"> <img src="imagens/icon-voltar.png" alt="" width="35px" height="35px" ></a> 
+        </div>
+        
+            <h3 id="escolhadoveiculo">Escolha seu veiculo</h3>
+
+        <div class="listview" id="lista_veiculos">
+           
+        </div>
+
+        
+      
+    </div>
+</div> 
+
+
+
+
+<div data-role="page" id="relatorio">
+    
+    <div data-role="main">
+
+        <img src="imagens/logo_syspan1.png" alt="" > 
+       
+        <div class="icon-voltar">
+            <a href="#PagInfo"> <img src="imagens/icon-voltar.png" alt="" width="35px" height="35px" ></a> 
+          </div> 
+          <br>
+          <br>
+          <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Pesquise o carro" data-inset="" >
+               <li><a href="#RelatorioFiesta">Fiesta</a></li>
+                <li><a href="#RelatorioUno">Uno</a></li>
+                <li><a href="#RelatorioMobi">Mobi</a></li>
+                <li><a href="#RelatorioCG">CG 125</a></li>
+                
+            </ul>
+          
+</div>
+    </div>
+
+
+
+<div data-role="page" id="RelatorioMobi">
+    
+    <div data-role="main">
+<br>
+        <img src="imagens/logo_syspan1.png" alt="" class="voltarRelatorio">
+       
+        <div class="icon-voltar_sobre">
+            <a href="#relatorio"> <img src="imagens/icon-voltar.png" alt="" width="35px" height="35px" class=""></a> 
+        </div> 
+  <!-- Carro Mobi-->
+
+  <div class="carros_relatorio">
+
+    <p><b>Veiculo:</b> Mobi</p>
+<p id="oleoCarroMobi" class="font_relatorio" ></p>
+<p id="kmMobi" class="font_relatorio"></p>
+<p id="dataAttMobi" class="font_relatorio"></p>
+
+</div>
+<!--Fim-->
+
+</div>
+    </div>
+
+
+<div data-role="page" id="RelatorioCG">
+    
+    <div data-role="main">
+<br>
+        <img src="imagens/logo_syspan1.png" alt="" class="voltarRelatorio">
+       
+        <div class="icon-voltar_sobre">
+            <a href="#relatorio"> <img src="imagens/icon-voltar.png" alt="" width="35px" height="35px" class=""></a> 
+        </div> 
+
+        <!-- Moto CG -->
+    <div class="carros_relatorio">
+        <p> <b>Veiculo:</b>  CG 125</p>
+    <p id="oleoCarroCG" class="font_relatorio"></p>
+    <p id="kmCG" class="font_relatorio"></p>
+    <p id="dataAttCg" class="font_relatorio"></p>
+</div>
+    <!-- Fim -->
+
+</div>
+    </div>
+
+
+
+<div data-role="page" id="RelatorioUno">
+    
+    <div data-role="main">
+<br>
+        <img src="imagens/logo_syspan1.png" alt="" class="voltarRelatorio">
+       
+        <div class="icon-voltar_sobre">
+            <a href="#relatorio"> <img src="imagens/icon-voltar.png" alt="" width="35px" height="35px" class=""></a> 
+        </div> 
+
+        <div class="carros_relatorio">
+            <div id="Relatorio_Uno">
+                <p><b>Veiculo:</b> Uno</p>
+             <p id="oleoCarroUno" class="font_relatorio" ></p>
+             <p id="kmUno" class="font_relatorio"></p>
+             <p id="dataAttUno" class="font_relatorio"></p>
+            </div>
+        </div>
+</div>
+    </div>
+
+
+    
+<div data-role="page" id="RelatorioFiesta">
+    
+    <div data-role="main">
+<br>
+
+        <img src="imagens/logo_syspan1.png" alt="" class="voltarRelatorio">
+       
+        <div class="icon-voltar_sobre">
+            <a href="#relatorio"> <img src="imagens/icon-voltar.png" alt="" width="35px" height="35px" class=""></a> 
+        </div> 
+
+       <!-- Carro Fiesta-->
+    <div class="carros_relatorio">
+        <p><b>Veiculo:</b> Fiesta</p>
+    <p id="oleoCarroFiesta"  class="font_relatorio"></p>
+    <p id="kmFiesta"  class="font_relatorio">  </p>
+    <p id="dataAttFiesta" class="font_relatorio"></p>
+</div>
+</div>
+    </div>
+
+
+
+<!--Pagina Sobre-->
+<div data-role="page" id="Sobre">
+    
+    <div data-role="main">
+<br>
+        <img src="imagens/logo_syspan1.png" alt="" class="imgSyspan">
+       
+        
+            <a href="#PagInfo"> <img src="imagens/icon-voltar.png" alt="" width="35px" height="35px" class="iconVoltarSobre"></a> 
+        
+<div class="Info_aplicativo">
+        <h3>Aplicativo</h3>
+        
+        <div class="conteudo_app">
+        <p> SysCar</p>
+        <p > Versão: <span id="versao"></span> </p>
+    </div>
+        <H3>Dispositivo</H3>
+        <div class="conteudo_dispositivo">
+        <p > Modelo: <span id="modelo"> </span> </p>
+        <p > Plataforma: <span id="plataforma"></span> </p>
+        <p> Identificador: <span id="uuid"></span></p>
+        </div>
+     <a href="http://www.syspan.com.br/">  <p style="font-weight: bold;color: black;" > www.syspan.com.br </p></a> 
+    </div>
+     
+</div>
+    </div>
+
+
+
+
+<script type="text/javascript" src="cordova.js"></script>
+</body>
+
+ 
+<!-- Link Jquery Mobile-->
+
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/veiculo.js"></script>
+
+<script type="text/javascript" src="js/Ajax.js"></script>
+<script type="text/javascript" src="js/confCelular.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</html>

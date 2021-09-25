@@ -1,0 +1,35 @@
+{
+    "Veiculos":[
+    {
+      "id":"1",
+      "descricao":"Fiesta",
+    "placa":"GAK-0160",
+    "km":"",
+    "km_troca_oleo":""
+  },
+  
+       {
+         "id":"2",
+       "descricao":"Uno",
+       "placa":"FRI-8763",
+       "km":"36537",
+       "km_troca_oleo":"37357"
+      },
+  
+          {
+            "id":"3",
+          "descricao":"Mobi",
+          "placa":"DUI-6480",
+          "km":"54752",
+          "km_troca_oleo":"60717"
+        },
+  
+            {
+              "id":"4",
+            "descricao":"CG 125",
+            "placa":"",
+            "km":"",
+            "km_troca_oleo":""
+          }
+      ]
+    }

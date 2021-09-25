@@ -1,0 +1,44 @@
+
+ #button{
+     text-align: end;
+     margin-right: 12px;
+     margin-top: -35px;
+     color: rgb(129, 129, 129); 
+     margin-left: 240px;
+ }
+
+
+.imgSyspan{
+    display: grid;   
+     margin: 0 auto;
+ }
+
+
+ .login__registre{
+     width: 90%;
+     text-align: center;
+     margin-top: 110px;
+     margin-left: 20px;
+ }
+
+
+img{
+    display: grid;  
+     margin: 0 auto;
+}
+
+
+#imgLogin{
+    margin-top: 30px;
+}
+
+
+#imgPagInfo{
+    margin-top: 20px;
+}
+
+
+#dados_incorretos{
+    color: red;
+    margin-top: 20px;  
+}

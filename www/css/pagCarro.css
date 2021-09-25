@@ -1,0 +1,78 @@
+a{
+text-decoration: none;
+}
+
+
+ #btn_Alterar{
+     font-weight: bold;
+ }
+ 
+
+ .menu_principal{
+    margin: 0 auto;
+   margin-top: 50px;
+    width: 100%;
+    text-align: center; 
+    height: 180px;
+  }
+
+
+
+  #Menu_relatorio{
+      height: 70%;
+    border-style: ridge;
+    font-size: 16px;
+    padding:1px;
+    border-radius: 4px;
+    border-color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 40px;
+    margin-top: 20px;   
+  }
+
+
+  .icon-voltar{
+    margin-inline-start: -300px;
+    margin-top: -41px;      
+  }
+
+
+ #nomedousuario{
+    text-align: center;
+    font-weight: bold;
+    color: #4F4F4F;
+    margin-top: -20px;
+    font-size: 15px;
+  }
+
+ 
+#imgList{
+  margin-top: 17px;
+}
+
+
+#imgFiesta{
+  margin-top: 17px;
+}
+
+
+#imgMobi{
+  margin-top: 17px;
+}
+
+
+#imgUno{
+  margin-top: 17px;
+}
+
+
+#imgCg{
+  margin-top: 17px;
+}
+
+
+#escolhadoveiculo{ 
+  text-align: center;
+  margin-top: 30px;
+  color: #000000;  
+}
